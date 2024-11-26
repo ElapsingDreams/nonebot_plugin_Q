@@ -35,7 +35,7 @@ async def handle_command(bot: Bot, event: MessageEvent):
     if avatar_image is None:
         await command.send(MessageSegment.text("无法获取用户头像，请检查网络连接。"))
         return
-
+    additional_image = None
     image_segment = next((seg for seg in event.reply.message if seg.type == "image"), None)
     if image_segment:
         image_url = image_segment.data['url']
